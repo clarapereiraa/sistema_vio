@@ -3,17 +3,15 @@ let users = [];
 module.exports = class userController {
   static async createUser(req, res) {
     const { cpf, email, password, name } = req.body;
-
+    console.log(cpf, email, password, name);
     if (!cpf || !email || !password || !name) {
       return res
         .status(400)
         .json({ error: "Todos os campos devem ser preenchidos" });
     } else if (isNaN(cpf) || cpf.length !== 11) {
-      return res
-        .status(400)
-        .json({
-          error: "CPF inválido. Deve conter exatamente 11 dígitos numéricos",
-        });
+      return res.status(400).json({
+        error: "CPF inválido. Deve conter exatamente 11 dígitos numéricos",
+      });
     } else if (!email.includes("@")) {
       return res.status(400).json({ error: "Email inválido. Deve conter @" });
     }
@@ -69,7 +67,7 @@ module.exports = class userController {
       return res.status(400).json({ error: "Usuário não encontrado" });
     }
     // removendo usuário da array 'users'
-    users.splice(userIndex, 1) // começa no indice 'userIndex', e apaga somente '1'
+    users.splice(userIndex, 1); // começa no indice 'userIndex', e apaga somente '1'
     return res.status(200).json({ message: "Usuário apagado", users });
   }
 };
