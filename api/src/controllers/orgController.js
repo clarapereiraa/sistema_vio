@@ -33,7 +33,7 @@ module.exports = class orgController {
             if (err.code === "ER_DUP_ENTRY") {
               return res
                 .status(400)
-                .json({ error: "O email já está vinculado a outro organizador" });
+                .json({ error: "O email já está vinculado a outro usuário" });
             } // if
             else {
               return res
@@ -65,7 +65,7 @@ module.exports = class orgController {
         }
         return res
           .status(200)
-          .json({ message: "Lista de Organizadores", orgs: results });
+          .json({ message: "Lista de Organizador", orgs: results });
       });
     } catch (error) {
       console.error("Erro ao executar consulta:", error);
