@@ -19,12 +19,13 @@ router.delete('/org/:id_organizador', orgController.deleteOrg);
 router.post('/evento', eventoController.createEvento);
 router.get('/evento', eventoController.getAllEventos);
 router.put('/evento', eventoController.updateEvento);
-router.delete("/evento/:id_evento", eventoController.deleteEvento);
+router.delete('/evento/:id_evento', eventoController.deleteEvento);
+router.get('/evento/data', eventoController.getEventosPorData);
 
 //rotas IngressoController
 router.post('/ingresso', ingressoController.createIngresso);
 router.get('/ingresso', ingressoController.getAllIngressos);
 router.put('/ingresso', ingressoController.updateIngresso);
-router.delete("/ing/:id_ingresso", ingressoController.deleteIngresso);
+router.delete('/ing/:id_ingresso', ingressoController.deleteIngresso);
 
-module.exports = router
+module.exports = router;
